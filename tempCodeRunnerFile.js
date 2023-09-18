@@ -1,1 +1,1 @@
-console.log(spin());
+nestedObj
