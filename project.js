@@ -69,8 +69,21 @@ const spin = () => {
       symbols.push(symbol);
     }
   }
+  const reels = [];
+  for (let i = 0; i < COLS; i++) {
+    reels.push([]);
+    const reelSymbol = [...symbols];
+    for (let j = 0; j < ROWS; j++) {
+      const randomIndex = Math.floor(Math.random() * reelSymbol.length);
+      const selectedSymbol = reelSymbols[randomIndex];
+      reels[i].push(selectedSymbol);
+      reelSymbols.splice(randomIndex, 1);
+    }
+  }
+  return reels;
 };
 
+///-------function call-----------////
 const balance = getValidDepositAmount();
 const lines = getNumberOfLines();
 const bet = getValidBet(balance, lines);
